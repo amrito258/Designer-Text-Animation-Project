@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #333;
+    color: white;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.row-top{
+    display: flex;
+    position: relative;
+    align-items: baseline;
+    overflow: hidden;
+}
+
+.row-top::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: gold;
+    animation: movebox 2s cubic-bezier(0, .5, 0, .5) forwards;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 5px;
+    opacity: 0;
+    animation: movetext 2s 2s ease forwards;
+}
+
+.dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: gold;
+    opacity: 0;
+    animation: movedot .5s 2s forwards cubic-bezier(.05, .81, .67, 1.55);
+}
+
+@keyframes movebox{
+    0%{
+        left: -200px;
+    }
+    
+    100%{
+        left: 100%;
+    }
+}
+
+@keyframes movetext{
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes movedot{
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-5px);
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.row-bottom{
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.row-bottom::before{
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    background-color: tomato;
+    left: -100%;
+    animation: movebox 2s 2s cubic-bezier(0, .5, 0, .5) forwards;
+}
+
+.desc{
+    color: lightgray;
+    font-weight: 100;
+    font-style: 15px;
+    opacity: 0;
+    animation: movetext 2s 4s ease forwards;
+}
